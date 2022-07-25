@@ -1,0 +1,98 @@
+[
+    {
+        "id": "1",
+        "name": " Galaxy M40",
+        "brand": "Samsung",
+        "price": 24490,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2020/06/Samsung-Galaxy-M40-Cocktail-Orange.jpg"
+      },
+      {
+        "id": "2",
+        "name": "Galaxy M32",
+        "brand": "Samsung",
+        "price": 18000,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2020/09/Samsung-Galaxy-M32.jpg"
+      },
+      {
+        "id": "3",
+        "name": " Galaxy M32",
+        "brand": "Samsung",
+        "price": 139999,
+        "ratings": "⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2021/01/Samsung-Galaxy-S21-Ultra-5G-Phantom-Black.jpg"
+      },
+      {
+        "id": "4",
+        "name": "Y12A",
+        "brand": "Vivo",
+        "price": 11990,
+        "ratings": "⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2021/07/Vivo-Y12A-Glacier-Blue.jpg"
+      },
+      {
+        "id": "5",
+        "name": "Y12",
+        "brand": "Vivo",
+        "price": 35000,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2020/10/Vivo-V20-SE-Oxygen-Blue.jpg"
+      },
+      {
+        "id": "6",
+        "name": "Oppo F19",
+        "brand": "Oppo",
+        "price": 21000,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2021/05/Oppo-F19.jpg"
+      },
+      {
+        "id": "7",
+        "name": "Oppo A55 5G",
+        "brand": "Oppo",
+        "price": 25000,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2021/01/Oppo-A55-5G-Rhythm-Black.jpg"
+      },
+      {
+        "id": "8",
+        "name": "iPhone 12 pro",
+        "brand": "Apple",
+        "price": 120000,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2021/01/Oppo-A55-5G-Rhythm-Black.jpg"
+      },
+      {
+        "id": "9",
+        "name": "iPhone 12 pro max",
+        "brand": "Apple",
+        "price": 140000,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2020/05/Apple-iPhone-12-Pro-Max-Graphite.jpg"
+      },
+      {
+        "id": "10",
+        "name": "Samsung Galaxy M32",
+        "brand": "Addidas",
+        "price": 18000,
+        "ratings": "⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2020/09/Samsung-Galaxy-M32.jpg"
+      },
+      {
+        "id": "11",
+        "name": "Samsung Galaxy M32",
+        "brand": "Addidas",
+        "price": 18000,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2020/09/Samsung-Galaxy-M32.jpg"
+      },
+      {
+        "id": "12",
+        "name": "Samsung Galaxy M32",
+        "brand": "Addidas",
+        "price": 18000,
+        "ratings": "⭐⭐⭐⭐⭐",
+        "img":"https://www.mobileghor.com/wp-content/uploads/2020/09/Samsung-Galaxy-M32.jpg"
+      }
+]

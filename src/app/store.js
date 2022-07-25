@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import mobilesReducer from '../features/Mobile/moblieSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    mobiles : mobilesReducer,
   },
 });
