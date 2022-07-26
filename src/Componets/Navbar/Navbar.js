@@ -1,6 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import {Link } from "react-router-dom";
+import auth from '../../firebase.init';
 const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
+  if(user){
+    console.log(user)
+  }
     return (
         <div>
           <div className='px-36 border-2'>
@@ -12,8 +22,6 @@ const Navbar = () => {
               border:'1px solid black',
               padding: '10px',
               width: '600px'
-              
-          
           }} 
             
             type='text'></input>
@@ -21,7 +29,8 @@ const Navbar = () => {
             <button className='btn btn-outline btn-success ml-8'>
               <Link to="login">🔒 Login</Link>
             </button>
-            <button className='btn btn-outline btn-info ml-8'>🔑 Register</button>
+            {user?<p></p>: <button className='btn btn-outline btn-info ml-8'> <Link to='signUp'>🔑 Register</Link></button>}
+            
           </div>
           <div class="sticky top-0 navbar bg-base-100 px-36 bg-blue-600  text-white stiky">
   <div class="navbar-start">
@@ -42,18 +51,21 @@ const Navbar = () => {
     </div>
     <div class=" hidden lg:flex">
     <ul class="menu menu-horizontal p-0">
-      <li><a>Home</a></li>
+      <li><Link to='/'>Home</Link></li>
       <li tabindex="0">
         <a>
         Categories
         </a>
       </li>
       <li><a>Contact</a></li>
-     
     </ul>
   </div>
   </div>
- 
+  <div class="navbar-end">
+    <ul>
+    <li>{user?<button onClick={logout} class="btn btn-ghost text-white text-xl">Sign Out</button>:<p></p>}</li>
+    </ul>
+  </div>
 </div>
         </div>
     );
