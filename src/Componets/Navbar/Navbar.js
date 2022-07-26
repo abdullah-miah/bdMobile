@@ -26,13 +26,11 @@ const Navbar = () => {
             
             type='text'></input>
             <button className='btn btn-outline btn-primary ml-8'> 🔍 search</button>
-            <button className='btn btn-outline btn-success ml-8'>
-              <Link to="login">🔒 Login</Link>
-            </button>
+            {user?<span className='text-2xl ml-8'>🛒</span>:<button className='btn btn-outline btn-success ml-8'><Link to="login">🔒 Login</Link></button>}
             {user?<p></p>: <button className='btn btn-outline btn-info ml-8'> <Link to='signUp'>🔑 Register</Link></button>}
             
           </div>
-          <div class="sticky top-0 navbar bg-base-100 px-36 bg-blue-600  text-white stiky">
+          <div class="sticky top-0 navbar  px-36 bg-blue-500  text-white stiky">
   <div class="navbar-start">
     <div class="dropdown">
       <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -62,9 +60,15 @@ const Navbar = () => {
   </div>
   </div>
   <div class="navbar-end">
+    
     <ul>
     <li>{user?<button onClick={logout} class="btn btn-ghost text-white text-xl">Sign Out</button>:<p></p>}</li>
     </ul>
+    <div class="avatar">
+  <div class="w-12 rounded-full">
+   {user?<img src={user?.photoURL}></img>:""}
+  </div>
+</div>
   </div>
 </div>
         </div>
