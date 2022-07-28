@@ -8,9 +8,6 @@ const Navbar = () => {
   const logout = () => {
     signOut(auth);
   };
-  if(user){
-    console.log(user)
-  }
     return (
         <div>
           <div className='px-36 border-2'>

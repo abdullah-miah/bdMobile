@@ -17,9 +17,8 @@ const SignUp = () => {
       const navigate = useNavigate();
       const location = useLocation();
       let from = location.state?.from?.pathname || "/";
-
     let signInError;
-    if(user){
+    if(user || gUser){
         navigate(from, { replace: true });
     }
     

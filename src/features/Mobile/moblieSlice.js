@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const fetchMobiles = createAsyncThunk("mobiles/fetchPost",
 async()=>{
-    const res = await axios.get("mobile.json");
+    const res = await axios.get("http://localhost:5000/products");
     return res.data
 }
 );
