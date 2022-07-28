@@ -3,6 +3,8 @@ import {  useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfi
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/useToken';
+import Loading from '../Shared/Loading';
 
 const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -14,15 +16,19 @@ const SignUp = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
       const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
+      const [token]=useToken(user ||gUser)
       const navigate = useNavigate();
-      const location = useLocation();
-      let from = location.state?.from?.pathname || "/";
+    //   const [token]=useToken( user || gUser)
     let signInError;
-    if(user || gUser){
-        navigate(from, { replace: true });
+    if ( loading || gLoading || updating) {
+        return <Loading></Loading>
     }
-    
-    
+    // if(token){
+    //     navigate('/appointment')
+    // }
+    if(token){
+        navigate('/')
+    }
     if(error || gError ||UpdateError ){
         signInError= <p className='text-red-500'><small>{error?.message || gError?.message || UpdateError?.message }</small></p>
     }

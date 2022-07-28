@@ -8,6 +8,7 @@ import Home from './Componets/Home/Home';
 import SignUp from './Componets/SignUp/SignUp';
 import Purchase from './Componets/Purchase/Purchase';
 import RequireAuth from './Componets/Login/RequireAuth';
+import MyOrders from './Componets/Dashboard/Myorder';
 function App() {
   return (
     <div>
@@ -21,6 +22,7 @@ function App() {
             <Purchase></Purchase>
           </RequireAuth>
         }></Route>
+        <Route path='myorder' element={<MyOrders></MyOrders>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

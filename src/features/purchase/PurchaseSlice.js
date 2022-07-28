@@ -3,14 +3,14 @@ import axios from "axios";
 
 
 
-export const fetchMobiles = createAsyncThunk("mobiles/fetchPost",
+export const fetchMobilesPurchase = createAsyncThunk("mobilesPurch/fetchMobilesPurchase",
 async()=>{
-    const res = await axios.get("http://localhost:5000/products");
+    const res = await axios.get(`http://localhost:5000/purchase`);
     return res.data
 }
 );
 
-const postSlice = createSlice({
+const purchaseSlice = createSlice({
     name: 'mobilesPurchase',
     initialState: {
         isLoading: false,
@@ -18,15 +18,15 @@ const postSlice = createSlice({
         error: null
     },
     extraReducers: (builder)=>{
-     builder.addCase(fetchMobiles.pending, (state)=>{
+     builder.addCase(fetchMobilesPurchase.pending, (state)=>{
         state.isLoading = true;
      });
-     builder.addCase(fetchMobiles.fulfilled, (state, action)=>{
+     builder.addCase(fetchMobilesPurchase.fulfilled, (state, action)=>{
         state.isLoading = false;
         state.mobiles = action.payload;
         state.error = null;
      });
-     builder.addCase(fetchMobiles.rejected, (state,action)=>{
+     builder.addCase(fetchMobilesPurchase.rejected, (state,action)=>{
         state.isLoading = false;
         state.mobiles = [];
         state.error = action.error.message;
@@ -34,4 +34,4 @@ const postSlice = createSlice({
     }
 })
 
-export default postSlice.reducer;
+export default purchaseSlice.reducer;

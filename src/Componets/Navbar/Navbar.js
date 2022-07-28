@@ -23,7 +23,7 @@ const Navbar = () => {
             
             type='text'></input>
             <button className='btn btn-outline btn-primary ml-8'> 🔍 search</button>
-            {user?<span className='text-2xl ml-8'>🛒</span>:<button className='btn btn-outline btn-success ml-8'><Link to="login">🔒 Login</Link></button>}
+            {user?<Link to='myorder' className='text-2xl ml-8'>🛒</Link>:<button className='btn btn-outline btn-success ml-8'><Link to="login">🔒 Login</Link></button>}
             {user?<p></p>: <button className='btn btn-outline btn-info ml-8'> <Link to='signUp'>🔑 Register</Link></button>}
             
           </div>
