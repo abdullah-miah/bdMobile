@@ -30,6 +30,12 @@ const Myorder = () => {
    })
 }
 } 
+
+      let total = 0;
+      orders.map(sum =>{
+        total = total + sum.totalPrice
+      })
+      
     return (
         <div style={{width: '1170px', margin: '0 auto'}}>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
@@ -47,7 +53,7 @@ const Myorder = () => {
                 <div className='confirmCard mt-4'>
                     <h1 className='text-center text-2xl font-bold'> Order Information</h1>
                     <p className='text-xl my-4' >Total Product: {orders.length}</p>
-                    <p className='text-xl my-4'>Total Taka: {orders.price}    <small>(BDT)</small></p>
+                    <p className='text-xl my-4'>Total Taka: {total}    <small>(BDT)</small></p>
                     <from>
                     <input  required type="text" placeholder="name" class="input input-bordered my-4 w-full max-w-xs" />
                     <input required  type='email' class="input input-bordered my-4  w-full max-w-xs" />

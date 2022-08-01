@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import {Link } from "react-router-dom";
 import auth from '../../firebase.init';
@@ -8,6 +8,14 @@ const Navbar = () => {
   const logout = () => {
     signOut(auth);
   };
+  const [orders, setOrder]= useState([]);
+  useEffect(()=>{
+    if(user){
+        fetch(`http://localhost:5000/myorder?userEmail=${user.email}`)
+        .then(res => res.json())
+        .then(data => setOrder(data))
+    }
+   },[user]) 
     return (
         <div>
           <div className='px-36 border-2'>
@@ -23,7 +31,13 @@ const Navbar = () => {
             
             type='text'></input>
             <button className='btn btn-outline btn-primary ml-8'> 🔍 search</button>
-            {user?<Link to='myorder' className='text-2xl ml-8'>🛒</Link>:<button className='btn btn-outline btn-success ml-8'><Link to="login">🔒 Login</Link></button>}
+            {user?
+            <div class="indicator">
+            <span class="indicator-item badge badge-secondary">{orders.length}</span> 
+            <Link to='myorder' className='text-2xl ml-8'>🛒</Link>
+          </div>
+            
+            :<button className='btn btn-outline btn-success ml-8'><Link to="login">🔒 Login</Link></button>}
             {user?<p></p>: <button className='btn btn-outline btn-info ml-8'> <Link to='signUp'>🔑 Register</Link></button>}
             
           </div>

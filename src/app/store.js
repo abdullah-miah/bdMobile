@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
+import CounterReducer from '../features/Counter/counterSlice';
+
 import mobilesReducer from '../features/Mobile/moblieSlice';
-import PurchaseReducer from '../features/purchase/PurchaseSlice';
+
 
 export const store = configureStore({
   reducer: {
     mobiles : mobilesReducer,
-    purchase: PurchaseReducer,
+    counter: CounterReducer,
   },
 });

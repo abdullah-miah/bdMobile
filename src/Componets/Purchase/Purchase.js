@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useSelector,useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { increment,decrement } from '../../features/Counter/counterSlice';
 import auth from '../../firebase.init';
 
 const Purchase = () => {
@@ -15,7 +17,7 @@ const Purchase = () => {
     },[])
     const handlePurchase =event=>{
         event.preventDefault()
-        const quantity = event.target.quantity.value;
+        // const quantity = event.target.quantity.value;
         const buyInfo ={
           img: mobile.img,
           productName:mobile.name,
@@ -23,7 +25,8 @@ const Purchase = () => {
           price: mobile.price,
           userName: user.displayName,
           userEmail: user.email,
-          quantity
+           quantity : count,
+           totalPrice: total
         }
        if(user){
         fetch('http://localhost:5000/order', {
@@ -42,7 +45,9 @@ const Purchase = () => {
        }
        
     }
-    
+    const count = useSelector(state =>state.counter.count);
+    const dispatch = useDispatch()
+    const total = parseInt(mobile.price)*count
     return (
         <div>
             <h1 className='px-36'><span> >> </span>  {mobile.title}</h1>
@@ -57,7 +62,7 @@ const Purchase = () => {
                 <p>Brand: {mobile.brand}</p>
                 <p className='my-2'>Sold by: <a className='text-primary text-xl' href='#'>{mobile.brand}</a></p>
                 <img src={mobile.imgBkash}></img>
-                <p className='my-2 text-2xl font-bold text-red-600'>৳{mobile.price}</p>
+                <p className='my-2 text-2xl font-bold text-red-600'>৳{total}</p>
                 <div class="divider"></div> 
                 <p>Warranty:<a className='text-primary my-2' href='#'>{mobile.Warranty}</a></p>
                 <p className='mt-2'>Color</p>
@@ -71,19 +76,19 @@ const Purchase = () => {
                 <label for="html">Screen replacement + ৳480</label><br></br>
                 <input type="radio" id="html" name="fav_language" value="Full coverage including theft/lost + ৳960"/>
                 <label for="html">Full coverage including theft/lost + ৳960</label><br></br>
-              <form onSubmit={handlePurchase}>
-              <div className='my-4'>
-              <span className='text-xl'>
-                <button style={{border: '1px solid black'}}> ➖ </button>
+                <div className='my-4'>
+              <span style={{border: '1px solid black'}} className='p-2'>
+                <button onClick={()=>{dispatch(decrement())}} > ➖ </button>
                </span>
-               <span className='text-xl' >
-               <input name='quantity' className='text-center' value='1'  style={{border: '1px solid black', width: "40px"}} type='text'></input>
+               <span className='p-2  ' style={{border: '1px solid black'}} >
+               {count}
                </span>
-               <span className='text-xl'>
-                <button style={{border: '1px solid black'}}> ➕ </button>
+               <span style={{border: '1px solid black'}} className='p-2'>
+                <button onClick={()=>{dispatch(increment())}} > ➕ </button>
                </span>
                <br/>
-              </div>
+              </div> 
+              <form onSubmit={handlePurchase}>
               <input  value='Add to Cart' type='submit' className='btn btn-outline mt-4'></input>
               </form>
                
