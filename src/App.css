@@ -70,3 +70,9 @@
   box-sizing: border-box;
   box-shadow: 0 8px 16px 0 rgb(75 104 123 / 20%), 0 2px 4px 0 rgb(0 0 0 / 20%);
 }
+.confirmCard2{
+  padding: 25px;
+  width: 500px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 16px 0 rgb(75 104 123 / 20%), 0 2px 4px 0 rgb(0 0 0 / 20%);
+}

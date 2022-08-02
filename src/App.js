@@ -9,7 +9,12 @@ import SignUp from './Componets/SignUp/SignUp';
 import Purchase from './Componets/Purchase/Purchase';
 import RequireAuth from './Componets/Login/RequireAuth';
 import MyOrders from './Componets/Dashboard/Myorder';
+import Dashboard from './Componets/Dashboard/Dashboard';
+import ConfirmOrder from './Componets/Dashboard/ConfirmOrder';
+import Review from './Componets/Dashboard/Review';
+import AllUsers from './Componets/Dashboard/AllUsers';
 function App() {
+  
   return (
     <div>
       <Navbar></Navbar>
@@ -22,6 +27,15 @@ function App() {
             <Purchase></Purchase>
           </RequireAuth>
         }></Route>
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }>
+          <Route index element={<ConfirmOrder></ConfirmOrder>}></Route>
+          <Route path='review' element={<Review></Review>}></Route>
+          <Route path='allusers' element={<AllUsers/>}></Route>
+        </Route>
         <Route path='myorder' element={<MyOrders></MyOrders>}></Route>
       </Routes>
       <Footer></Footer>
