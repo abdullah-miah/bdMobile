@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import OrderDetails from './OrderDetails';
 
@@ -18,6 +18,11 @@ const ConfirmOrder = () => {
     }
     
    },[user])
+
+   const navigate = useNavigate();
+    const handelPayment = (id)=>{
+        navigate(`/payment/${id}`)
+      }
    
     return (
         <div className='px-12 mt-8'>
@@ -51,11 +56,13 @@ const ConfirmOrder = () => {
                 
                </div>
                <div className='confirmCard2 mt-4'>
-                <h1 className='text-2xl font-bold text-primary text-center'>Bill Information</h1>
-                <p className='text-xl text-red-400'>Order  ID: {orders[0]?._id}</p>
-                <p className='text-xl text-yellow-500 mt-4'>Total Taka : {orders[0]?.totalPrice}</p>
-                <p>Address :{orders[0]?.address} </p>
-                <p>Phone :{orders[0]?.phone} </p>
+                <h1 className='text-3xl font-bold text-primary text-center'>Bill Information</h1>
+                <p className='text-2xl mt-4'>Order  ID: <span className='text-red-400'>{orders[0]?._id}</span></p>
+                <p className='text-2xl  mt-4'>Total Taka : <span className='text-2xl text-yellow-500 font-bold text-red-600'> ৳ {orders[0]?.totalPrice}</span></p>
+                <p className='text-2xl mt-4'>Address :  {orders[0]?.address} </p>
+                <p className='text-2xl mt-4'>Phone :    {orders[0]?.phone} </p>
+                <img className='my-2' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVTGpuiJgCbdDPk5yyxuPgDkidHHHYGRoZ0zBXq2fhj4EHGoH6iMrpYTOSmDCHrXpyUA&usqp=CAU'/>
+                <button onClick={()=>handelPayment(orders[0]?._id)} className='btn mt-8'>Payment</button>
                </div>
             </div>
         </div>

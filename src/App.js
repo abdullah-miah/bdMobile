@@ -13,6 +13,7 @@ import Dashboard from './Componets/Dashboard/Dashboard';
 import ConfirmOrder from './Componets/Dashboard/ConfirmOrder';
 import Review from './Componets/Dashboard/Review';
 import AllUsers from './Componets/Dashboard/AllUsers';
+import Payment from './Componets/Dashboard/Payment';
 function App() {
   
   return (
@@ -27,6 +28,11 @@ function App() {
             <Purchase></Purchase>
           </RequireAuth>
         }></Route>
+        <Route path='/payment/:id' element={
+          <RequireAuth>
+            <Payment></Payment>
+          </RequireAuth>
+        }></Route>
         <Route path='/dashboard' element={
           <RequireAuth>
             <Dashboard></Dashboard>
@@ -35,6 +41,7 @@ function App() {
           <Route index element={<ConfirmOrder></ConfirmOrder>}></Route>
           <Route path='review' element={<Review></Review>}></Route>
           <Route path='allusers' element={<AllUsers/>}></Route>
+          
         </Route>
         <Route path='myorder' element={<MyOrders></MyOrders>}></Route>
       </Routes>

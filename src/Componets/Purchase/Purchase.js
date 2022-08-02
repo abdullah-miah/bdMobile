@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { increment,decrement } from '../../features/Counter/counterSlice';
 import auth from '../../firebase.init';
+import ReactImageZoom from 'react-image-zoom';
 
 const Purchase = () => {
     const {id}=useParams();
@@ -48,13 +49,14 @@ const Purchase = () => {
     const count = useSelector(state =>state.counter.count);
     const dispatch = useDispatch()
     const total = parseInt(mobile.price)*count
+    const props = {width: 80, height: 100, zoomWidth: 200, img:(mobile.img)};
     return (
         <div>
             <h1 className='px-36'><span> >> </span>  {mobile.title}</h1>
            <div className='grid gap-1 grid-cols-1 lg:grid-cols-3 px-36 mt-12'>
             
-             <div>
-             <img src={mobile.img}></img>
+             <div className='w-80'>
+             <ReactImageZoom {...props} />
              </div>
              <div id='viewCard'>
                 <h1 className='text-xl font-bold mb-4'>{mobile.title}</h1>
